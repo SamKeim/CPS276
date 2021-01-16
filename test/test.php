@@ -1,11 +1,3 @@
-<html>
-
-    hello
-
-</html>
-
-
 <?
-phpinfo();
-
+    echo($notavar);
 ?>
