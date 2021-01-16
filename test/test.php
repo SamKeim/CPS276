@@ -1,3 +1,10 @@
+<html>
+
+    hello
+
+</html>
+
+
 <?
 phpinfo();
 
