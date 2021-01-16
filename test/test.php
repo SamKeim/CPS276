@@ -1,3 +1,3 @@
-<?
-    echo($notavar);
+<?php
+    echo("Hello World!");
 ?>
