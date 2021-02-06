@@ -21,7 +21,7 @@ function printTable($row = 15, $col = 5){
         <div class="container border m-4 mx-auto p-4">
             <h1>Assignment 02</h1>
             <h2>Exercise 03</h2>
-            <p><a href="https://github.com/SamKeim/CPS276/blob/master/assignments/assignment02/exercise03.html" class="btn btn-outline-primary">GitHub Source Code</a></p>
+            <p><a href="https://github.com/SamKeim/CPS276/blob/master/assignments/assignment02/exercise03.php" class="btn btn-outline-primary">GitHub Source Code</a></p>
             <p>
                 <a href="exercise01.php" class="btn btn-sm btn-outline-primary">Exercise 01</a>
                 <a href="exercise02.php" class="btn btn-sm btn-outline-primary">Exercise 02</a>

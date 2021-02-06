@@ -35,7 +35,7 @@ function printLorem($counter){
 	<div id="wrapper">
 		<header>
 			<h1><?=$header?></h1>
-			<p><a href="https://github.com/SamKeim/CPS276/blob/master/assignments/assignment02/exercise02.html" class="btn btn-outline-light">GitHub Source Code</a></p>
+			<p><a href="https://github.com/SamKeim/CPS276/blob/master/assignments/assignment02/exercise02.php" class="btn btn-outline-light">GitHub Source Code</a></p>
 			<p>
                 <a href="exercise01.php" class="btn btn-sm btn-outline-light">Exercise 01</a>
                 <a href="exercise02.php" class="btn btn-sm btn-outline-light disabled">Exercise 02</a>
