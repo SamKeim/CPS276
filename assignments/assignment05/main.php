@@ -28,10 +28,10 @@ if(!empty($_REQUEST)){
             <p>Folder names should contain alpha-numeric characters only.</p>
             <?
                 if(!empty($_REQUEST)){
-                    if(!$result){
-                        echo("<p><a target=\"readme\" class=\"btn btn-danger\" href=\"" . $readMePath . "\">File Already Exists</a></p>");
-                    } else {
+                    if($result){
                         echo("<p><a target=\"readme\" class=\"btn btn-success\" href=\"" . $readMePath . "\">" . $readMePath . "</a></p>");
+                    } else {
+                        echo("<p><a target=\"readme\" class=\"btn btn-danger\" href=\"" . $readMePath . "\">File Already Exists</a></p>");
                     }
                 }
             ?>
