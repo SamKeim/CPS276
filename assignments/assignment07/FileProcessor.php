@@ -1,27 +1,30 @@
 <?
 class FileProcessor{
     function uploadFile(){
-        if(empty($_FILES['file']['name'])){
-                return 'Please upload a file';
+        // Check if empty
+        if(empty($_FILES['file']['name']) || empty($_REQUEST['fileName'])){
+                return 'Please complete the form.';
         }
 
-        // The following method validates and returns correct file name, or false if invalid
+        // isValidFileName validates and returns correct file name, or false if invalid
         $fileName = FileProcessor::isValidFileName($_REQUEST['fileName']);
         if($fileName === false){
             return 'Invalid file name, please enter a name with no spaces or invalid characters.';
         }
 
+        // Check size and mime type
         if(!FileProcessor::isValidFile($_FILES['file']['size'], $_FILES['file']['type'])){
             return 'Please upload a PDF that is under 100KB';
         }
 
+        // File is assumed to be valid if code reaches this point
         // Move file from tmp to directory
         $tempFilePath = $_FILES['file']['tmp_name'];
         $destFilePath = getcwd() . '/files/' . $fileName;
         if(!copy($tempFilePath, $destFilePath)){
-            return 'File already exists, please try again.';
+            return 'Error, please try again.';
         } else {
-        // Store file path and name into db
+            // Store file path and name into db
             $args = [];
             $args[] = $destFilePath;
             $args[] = $fileName;
@@ -45,11 +48,8 @@ class FileProcessor{
 
 
     function isValidFile($fileSize, $fileType){
-        // Returns false if file is too large or too small, returns true if file is valid
-        if($fileSize > 100000){
-            return false;
-        }
-        if(strcmp($fileType, "application/pdf") !== 0){
+        // Returns false if file is too large or mime type is invalid, returns true if file is valid
+        if($fileSize > 100000 || strcmp($fileType, "application/pdf") !== 0){
             return false;
         }
         return true;
