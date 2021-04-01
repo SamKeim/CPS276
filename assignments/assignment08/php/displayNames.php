@@ -4,11 +4,7 @@ $arr = [];
 
 
 // read all the records from the 'names' table in name order.
-$names = execute("SELECT name FROM names ORDER BY name;");
-$singleName = [];
-foreach($names as $val){
-    $singleName[] = $val['name'];
-}
+$names = array_column(execute("SELECT name FROM names ORDER BY name;"), 'name');
 
 //  if no data is found (
 if(empty($names)){
@@ -21,7 +17,7 @@ if(empty($names)){
     // Create an array with 1 key called 'names'
     $arr['names'] = "";
     // create a string that represents all the names in the table using implode (<br> as delimiter)
-    $namesString = implode("<br>", $singleName);
+    $namesString = implode("<br>", $names);
     // set the value of the 'names' key to be the string you created in the line above
     $arr['names'] = $namesString;
 }
